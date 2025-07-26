@@ -4,114 +4,208 @@
   <meta charset="UTF-8">
   <title>Meysam Hasanvand – IT Manager & Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * { margin:0; padding:0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      direction: ltr;
-      font-family: 'Vazirmatn', sans-serif;
-      color: #333;
-      background: #fff;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #1a1a1a;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      line-height: 1.6;
     }
-    header, footer {
-      background: #f5f5f5;
-      padding: 15px 30px;
-      text-align: left;
+
+    /* Header */
+    header {
+      background-color: #f6f6f6;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
+
+    header h1 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
     nav a {
-      margin-right: 20px;
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      padding-right: 30px;
+      border-right: 1px solid #eee;
+    }
+
+    .sidebar img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .sidebar p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
       color: #333;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      transition: color 0.2s;
     }
-    .container { display: flex; flex:1; }
-    .sidebar {
-      width: 260px;
-      padding: 20px;
-      border-right: 1px solid #ddd;
+
+    .social-links a i {
+      margin-right: 10px;
+      width: 20px;
     }
-    .sidebar img {
-      width:100%;
-      border-radius:8px;
-      margin-bottom:15px;
+
+    .social-links a:hover {
+      color: #000;
     }
-    .sidebar h3 { margin:10px 0; font-size:24px; }
-    .sidebar p { margin-bottom:15px; color:#555; }
-    .sidebar a {
-      display:block;
-      margin:8px 0;
-      color:#0077b6;
-      text-decoration:none;
-      font-weight:bold;
-    }
+
+    /* Main Content */
     .main-content {
-      flex:1;
-      padding:30px;
+      flex: 1;
+      padding-left: 30px;
     }
-    .main-content h2 { margin-bottom:10px; }
-    .main-content p, .main-content ul { line-height:1.6; margin-bottom:20px; }
+
+    .main-content h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .main-content p {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .main-content ul {
+      list-style: disc inside;
+      color: #444;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f6f6f6;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      border-top: 1px solid #eee;
+    }
+
     footer a {
-      margin:0 10px;
-      color:#555;
-      text-decoration:none;
+      margin: 0 10px;
+      color: #555;
+      text-decoration: none;
     }
-    footer a:hover { color:#333; }
-    @media (max-width:768px) {
-      .container { flex-direction:column; }
-      .sidebar { width:100%; border-right:none; border-bottom:1px solid #ddd; }
+
+    footer a:hover {
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .sidebar {
+        width: 100%;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 30px;
+      }
+
+      .main-content {
+        padding-left: 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div><strong>Meysam Hasanvand</strong></div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>Meysam Hasanvand</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <div class="container">
+<div class="container">
+  <aside class="sidebar">
+    <img src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Meysam Hasanvand">
+    <h2>IT Manager & Developer</h2>
+    <p>Leading secure infrastructure & digital systems at HCIOE.</p>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/meysam-hasanvand" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+      <a href="https://github.com/MeysamHasanvand" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+      <a href="mailto:example@example.com"><i class="fas fa-envelope"></i>Email</a>
+      <a href="https://netesprit.ir" target="_blank"><i class="fas fa-globe"></i>NetEsprit</a>
+      <a href="https://riseweb.ir" target="_blank"><i class="fas fa-globe"></i>RiseWeb</a>
+    </div>
+  </aside>
 
-    <aside class="sidebar">
-      <img src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Profile photo">
-      <h3>IT Manager & Developer</h3>
-      <p>Currently Head of IT at High Council of Official Experts (HCIOE) leading digital infrastructure & security teams  [oai_citation:0‡LinkedIn](https://ir.linkedin.com/in/meysam-hasanvand?utm_source=chatgpt.com)</p>
-      <a href="https://linkedin.com/in/meysam-hasanvand" target="_blank">LinkedIn</a>
-      <a href="https://github.com/MeysamHasanvand" target="_blank">GitHub</a>
-      <a href="https://netesprit.ir" target="_blank">NetEsprit (Hosting & Domain)</a>
-      <a href="https://riseweb.ir" target="_blank">RiseWeb (Design Agency)</a>
-    </aside>
+  <section class="main-content">
+    <h2 id="about">About Me</h2>
+    <p>Hello! I'm Meysam Hasanvand, a passionate IT leader with extensive experience in secure system development, infrastructure management, and digital transformation. Currently heading IT at HCIOE, I specialize in building resilient digital ecosystems.</p>
 
-    <section class="main-content">
-      <h2 id="about">About Me</h2>
-      <p>Hello! I am Meysam Hasanvand, serving as IT Manager and Head of IT at HCIOE. I lead teams responsible for digital infrastructure, system security, and IT operations. My expertise includes .NET development, web systems, and Cloud & DevOps environments.</p>
+    <h2 id="resume">Resume Highlights</h2>
+    <ul>
+      <li>Head of IT at HCIOE – driving security, infrastructure, and innovation</li>
+      <li>Experienced in .NET backend development and DevOps</li>
+      <li>Founder of NetEsprit and RiseWeb for hosting & web design</li>
+      <li>Skilled in Linux, Git, automation, and team leadership</li>
+    </ul>
 
-      <h2 id="resume">Resume Highlights</h2>
-      <ul>
-        <li>Managed critical national IT infrastructure at HCIOE, ensuring security and uptime  [oai_citation:1‡LinkedIn](https://ir.linkedin.com/in/meysam-hasanvand?utm_source=chatgpt.com)</li>
-        <li>Developed and maintained web-based .NET systems and internal tools</li>
-        <li>Led projects using ASP.NET Core, SQL Server, Git</li>
-        <li>Experienced in working with hosting/domain registration & web design agencies</li>
-      </ul>
+    <h2 id="contact">Contact</h2>
+    <p>Let's connect! Reach out via LinkedIn, GitHub, or email.</p>
+  </section>
+</div>
 
-      <h2 id="contact">Contact</h2>
-      <p>Feel free to connect with me on LinkedIn or GitHub. You can also explore services at RiseWeb design agency or NetEsprit hosting platform through the links provided.</p>
-    </section>
-
-  </div>
-
-  <footer>
-    <p>© 2025 Meysam Hasanvand</p>
-    <a href="https://netesprit.ir" target="_blank">NetEsprit</a>|
-    <a href="https://riseweb.ir" target="_blank">RiseWeb</a>|
-    <a href="https://github.com/MeysamHasanvand" target="_blank">GitHub</a>
-  </footer>
+<footer>
+  <p>© 2025 Meysam Hasanvand</p>
+  <a href="https://netesprit.ir" target="_blank">NetEsprit</a>
+  <a href="https://riseweb.ir" target="_blank">RiseWeb</a>
+  <a href="https://github.com/MeysamHasanvand" target="_blank">GitHub</a>
+</footer>
 
 </body>
 </html>
