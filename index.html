@@ -1,172 +1,116 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>پروفایل شخصی من</title>
+  <title>Meysam Hasanvand – IT Manager & Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin:0; padding:0; box-sizing: border-box; }
     body {
+      direction: ltr;
       font-family: 'Vazirmatn', sans-serif;
-      background-color: #f4f4f4;
       color: #333;
+      background: #fff;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
-    /* Header */
-    header {
-      background-color: #005f73;
-      color: #fff;
+    header, footer {
+      background: #f5f5f5;
       padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: left;
     }
-
-    header nav a {
-      color: #fff;
+    nav a {
+      margin-right: 20px;
+      color: #333;
       text-decoration: none;
-      margin-right: 15px;
       font-weight: bold;
     }
-
-    /* Main layout */
-    .container {
-      display: flex;
-      flex: 1;
-    }
-
-    /* Sidebar */
+    .container { display: flex; flex:1; }
     .sidebar {
       width: 260px;
-      background-color: #ffffff;
       padding: 20px;
-      border-left: 1px solid #ccc;
+      border-right: 1px solid #ddd;
     }
-
     .sidebar img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      width:100%;
+      border-radius:8px;
+      margin-bottom:15px;
     }
-
-    .sidebar h3 {
-      font-size: 20px;
-      margin: 10px 0;
-    }
-
-    .sidebar p {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 15px;
-    }
-
+    .sidebar h3 { margin:10px 0; font-size:24px; }
+    .sidebar p { margin-bottom:15px; color:#555; }
     .sidebar a {
-      display: block;
-      margin: 6px 0;
-      text-decoration: none;
-      color: #0077b6;
-      font-weight: bold;
+      display:block;
+      margin:8px 0;
+      color:#0077b6;
+      text-decoration:none;
+      font-weight:bold;
     }
-
-    /* Main content */
     .main-content {
-      flex: 1;
-      padding: 30px;
-      background-color: #fff;
+      flex:1;
+      padding:30px;
     }
-
-    .main-content h2 {
-      margin-bottom: 10px;
-      color: #005f73;
-    }
-
-    .main-content p {
-      line-height: 1.8;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #003845;
-      color: #ccc;
-      padding: 20px;
-      text-align: center;
-    }
-
+    .main-content h2 { margin-bottom:10px; }
+    .main-content p, .main-content ul { line-height:1.6; margin-bottom:20px; }
     footer a {
-      color: #90e0ef;
-      margin: 0 10px;
-      text-decoration: none;
+      margin:0 10px;
+      color:#555;
+      text-decoration:none;
     }
-
-    footer a:hover {
-      color: #ffffff;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        border-left: none;
-        border-top: 1px solid #ccc;
-      }
+    footer a:hover { color:#333; }
+    @media (max-width:768px) {
+      .container { flex-direction:column; }
+      .sidebar { width:100%; border-right:none; border-bottom:1px solid #ddd; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
-    <div><strong>پروفایل من</strong></div>
+    <div><strong>Meysam Hasanvand</strong></div>
     <nav>
-      <a href="#">خانه</a>
-      <a href="#">نمونه‌کارها</a>
-      <a href="#">تماس</a>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Main layout -->
   <div class="container">
 
-    <!-- Sidebar -->
     <aside class="sidebar">
-      <img src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="عکس پروفایل">
-      <h3>میثم حسن‌وند</h3>
-      <p>برنامه‌نویس وب و علاقه‌مند به توسعه آزاد</p>
-
-      <a href="https://github.com/username" target="_blank">گیت‌هاب</a>
-      <a href="https://linkedin.com/in/username" target="_blank">لینکدین</a>
-      <a href="mailto:example@example.com">ایمیل</a>
+      <img src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Profile photo">
+      <h3>IT Manager & Developer</h3>
+      <p>Currently Head of IT at High Council of Official Experts (HCIOE) leading digital infrastructure & security teams  [oai_citation:0‡LinkedIn](https://ir.linkedin.com/in/meysam-hasanvand?utm_source=chatgpt.com)</p>
+      <a href="https://linkedin.com/in/meysam-hasanvand" target="_blank">LinkedIn</a>
+      <a href="https://github.com/MeysamHasanvand" target="_blank">GitHub</a>
+      <a href="https://netesprit.ir" target="_blank">NetEsprit (Hosting & Domain)</a>
+      <a href="https://riseweb.ir" target="_blank">RiseWeb (Design Agency)</a>
     </aside>
 
-    <!-- Body content -->
     <section class="main-content">
-      <h2>درباره من</h2>
-      <p>
-        سلام! من یک توسعه‌دهنده وب با علاقه به پروژه‌های متن‌باز هستم. تجربه کار با تکنولوژی‌های Python، Node.js، HTML/CSS و فریم‌ورک‌های مدرن دارم.
-        در این صفحه، اطلاعاتی درباره من، نمونه‌کارها و راه‌های ارتباطی با من خواهید دید.
-      </p>
+      <h2 id="about">About Me</h2>
+      <p>Hello! I am Meysam Hasanvand, serving as IT Manager and Head of IT at HCIOE. I lead teams responsible for digital infrastructure, system security, and IT operations. My expertise includes .NET development, web systems, and Cloud & DevOps environments.</p>
+
+      <h2 id="resume">Resume Highlights</h2>
+      <ul>
+        <li>Managed critical national IT infrastructure at HCIOE, ensuring security and uptime  [oai_citation:1‡LinkedIn](https://ir.linkedin.com/in/meysam-hasanvand?utm_source=chatgpt.com)</li>
+        <li>Developed and maintained web-based .NET systems and internal tools</li>
+        <li>Led projects using ASP.NET Core, SQL Server, Git</li>
+        <li>Experienced in working with hosting/domain registration & web design agencies</li>
+      </ul>
+
+      <h2 id="contact">Contact</h2>
+      <p>Feel free to connect with me on LinkedIn or GitHub. You can also explore services at RiseWeb design agency or NetEsprit hosting platform through the links provided.</p>
     </section>
 
   </div>
 
-  <!-- Footer -->
   <footer>
-    <p>© ۲۰۲۵ میثم حسن‌وند</p>
-    <a href="#">حریم خصوصی</a>
-    <a href="#">شرایط استفاده</a>
-    <a href="#">تماس با ما</a>
+    <p>© 2025 Meysam Hasanvand</p>
+    <a href="https://netesprit.ir" target="_blank">NetEsprit</a>|
+    <a href="https://riseweb.ir" target="_blank">RiseWeb</a>|
+    <a href="https://github.com/MeysamHasanvand" target="_blank">GitHub</a>
   </footer>
 
 </body>
