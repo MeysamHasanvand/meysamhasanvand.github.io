@@ -1,80 +1,173 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <title>پروفایل شخصی من</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>پروفایل من</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-      direction: rtl;
-      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    * {
       margin: 0;
       padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #f4f4f4;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      text-align: center;
-      max-width: 400px;
-      width: 90%;
+    /* Header */
+    header {
+      background-color: #005f73;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #ddd;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      margin: 10px 0;
-      font-size: 24px;
-    }
-
-    p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 30px;
-    }
-
-    .buttons a {
-      display: block;
+    header nav a {
+      color: #fff;
       text-decoration: none;
-      background: #4b6cb7;
-      color: white;
-      padding: 12px 20px;
-      margin: 10px 0;
-      border-radius: 8px;
-      transition: background 0.3s ease;
+      margin-right: 15px;
+      font-weight: bold;
     }
 
-    .buttons a:hover {
-      background: #182848;
+    /* Main layout */
+    .container {
+      display: flex;
+      flex: 1;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-left: 1px solid #ccc;
+    }
+
+    .sidebar img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar h3 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .sidebar p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 6px 0;
+      text-decoration: none;
+      color: #0077b6;
+      font-weight: bold;
+    }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 30px;
+      background-color: #fff;
+    }
+
+    .main-content h2 {
+      margin-bottom: 10px;
+      color: #005f73;
+    }
+
+    .main-content p {
+      line-height: 1.8;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #003845;
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #90e0ef;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #ccc;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
+  <header>
+    <div><strong>پروفایل من</strong></div>
+    <nav>
+      <a href="#">خانه</a>
+      <a href="#">نمونه‌کارها</a>
+      <a href="#">تماس</a>
+    </nav>
+  </header>
+
+  <!-- Main layout -->
   <div class="container">
-    <img src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Avatar" class="avatar">
-    <h1>سلام، من میثم هستم</h1>
-    <p>توسعه‌دهنده وب | علاقه‌مند به متن‌باز | عاشق یادگیری</p>
-    <div class="buttons">
-      <a href="https://github.com/username" target="_blank">گیت‌هاب من</a>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="عکس پروفایل">
+      <h3>میثم حسن‌وند</h3>
+      <p>برنامه‌نویس وب و علاقه‌مند به توسعه آزاد</p>
+
+      <a href="https://github.com/username" target="_blank">گیت‌هاب</a>
       <a href="https://linkedin.com/in/username" target="_blank">لینکدین</a>
       <a href="mailto:example@example.com">ایمیل</a>
-      <a href="https://t.me/username" target="_blank">تلگرام</a>
-    </div>
+    </aside>
+
+    <!-- Body content -->
+    <section class="main-content">
+      <h2>درباره من</h2>
+      <p>
+        سلام! من یک توسعه‌دهنده وب با علاقه به پروژه‌های متن‌باز هستم. تجربه کار با تکنولوژی‌های Python، Node.js، HTML/CSS و فریم‌ورک‌های مدرن دارم.
+        در این صفحه، اطلاعاتی درباره من، نمونه‌کارها و راه‌های ارتباطی با من خواهید دید.
+      </p>
+    </section>
+
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© ۲۰۲۵ میثم حسن‌وند</p>
+    <a href="#">حریم خصوصی</a>
+    <a href="#">شرایط استفاده</a>
+    <a href="#">تماس با ما</a>
+  </footer>
+
 </body>
 </html>
