@@ -1,222 +1,1388 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fa" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Meysam Hasanvand – IT Manager & Developer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meysam Hasanvand | IT Director & Infrastructure Architect</title>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
+        :root[data-theme="light"] {
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-elevated: #f1f5f9;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            
+            --brand-primary: #0f766e;
+            --brand-primary-hover: #115e59;
+            --brand-subtle: #f0fdfa;
+            --brand-border: #ccfbf1;
+            
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            
+            --shadow-subtle: 0 1px 3px 0 rgb(0 0 0 / 0.04);
+            --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.08);
+        }
+
+        :root[data-theme="dark"] {
+            --bg-body: #090d16;
+            --bg-surface: #0f172a;
+            --bg-surface-elevated: #1e293b;
+            --border: #1e293b;
+            --border-hover: #334155;
+            
+            --brand-primary: #2dd4bf;
+            --brand-primary-hover: #5eead4;
+            --brand-subtle: rgba(45, 212, 191, 0.08);
+            --brand-border: rgba(45, 212, 191, 0.2);
+            
+            --text-title: #f8fafc;
+            --text-main: #cbd5e1;
+            --text-muted: #94a3b8;
+            
+            --shadow-subtle: 0 1px 3px 0 rgb(0 0 0 / 0.3);
+            --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+            --shadow-hover: 0 12px 20px -3px rgb(0 0 0 / 0.5);
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fff;
-            color: #1a1a1a;
-            display: flex;
-            flex-direction: column;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Vazirmatn', sans-serif;
             min-height: 100vh;
-            line-height: 1.6;
+            line-height: 1.75;
+            transition: background-color 0.25s ease, color 0.25s ease;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Header */
+        body.en {
+            font-family: 'Inter', sans-serif;
+            direction: ltr;
+        }
+
+        .grid-backdrop {
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Top Header */
         header {
-            background-color: #f6f6f6;
-            padding: 20px 30px;
+            position: sticky;
+            top: 16px;
+            z-index: 100;
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            padding: 12px 24px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(12px);
         }
 
-        header h1 {
-            font-size: 20px;
-            font-weight: 600;
+        .logo {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-title);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Fira Code', monospace;
+            direction: ltr;
+        }
+
+        .logo-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--brand-primary);
+            box-shadow: 0 0 0 3px var(--brand-border);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         nav a {
-            margin-left: 20px;
+            color: var(--text-muted);
             text-decoration: none;
-            color: #333;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
-            color: #000;
+            color: var(--brand-primary);
         }
 
-        .container {
+        .controls {
             display: flex;
-            flex: 1;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-btn {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--text-title);
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            border-color: var(--brand-primary);
+            color: var(--brand-primary);
+        }
+
+        .lang-btn {
+            width: auto;
+            padding: 0 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Layout */
+        .wrapper {
+            width: 92%;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px;
+            margin: 32px auto 60px;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 28px;
+            align-items: start;
         }
 
         /* Sidebar */
         .sidebar {
-            width: 280px;
-            padding-right: 30px;
-            border-right: 1px solid #eee;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 22px;
+            text-align: center;
+            position: sticky;
+            top: 88px;
+            box-shadow: var(--shadow-card);
         }
 
-        .sidebar img {
+        .avatar-wrap {
+            width: 115px;
+            height: 115px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            padding: 3px;
+            border: 1px solid var(--border);
+            background: var(--bg-surface-elevated);
+        }
+
+        .avatar-wrap img {
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .sidebar h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-title);
+            margin-bottom: 6px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--brand-primary);
+            background: var(--brand-subtle);
+            border: 1px solid var(--brand-border);
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--brand-primary);
+        }
+
+        .sidebar .bio {
+            color: var(--text-muted);
+            font-size: 0.86rem;
+            line-height: 1.65;
+            margin-bottom: 22px;
+        }
+
+        .btn-resume {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: var(--brand-primary);
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
             margin-bottom: 20px;
         }
 
-        .sidebar h2 {
-            font-size: 20px;
-            margin-bottom: 5px;
+        :root[data-theme="dark"] .btn-resume {
+            color: #090d16;
+            font-weight: 700;
         }
 
-        .sidebar p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 20px;
+        .btn-resume:hover {
+            background: var(--brand-primary-hover);
+        }
+
+        .sidebar-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: right;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            margin-bottom: 18px;
+            font-size: 0.82rem;
+        }
+
+        body.en .sidebar-specs {
+            text-align: left;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+        }
+
+        .spec-item span:last-child {
+            color: var(--text-title);
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
-            color: #333;
+            gap: 12px;
+            padding: 9px 12px;
+            border-radius: 10px;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--text-main);
             text-decoration: none;
+            font-size: 0.85rem;
             font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .social-links a i {
-            margin-right: 10px;
-            width: 20px;
+            transition: all 0.2s ease;
         }
 
         .social-links a:hover {
-            color: #000;
+            border-color: var(--brand-primary);
+            color: var(--brand-primary);
+            transform: translateX(-3px);
         }
 
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding-left: 30px;
+        body.en .social-links a:hover {
+            transform: translateX(3px);
         }
 
-        .main-content h2 {
-            font-size: 22px;
+        .social-links a i {
+            font-size: 1rem;
+            color: var(--brand-primary);
+            width: 18px;
+            text-align: center;
+        }
+
+        /* Content Area */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-header i {
+            color: var(--brand-primary);
+            font-size: 1.15rem;
+            background: var(--brand-subtle);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--brand-border);
+        }
+
+        .card-header h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-title);
+        }
+
+        /* Architecture Pillars */
+        .arch-pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .arch-box {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            transition: var(--shadow-card);
+        }
+
+        .arch-box:hover {
+            border-color: var(--brand-primary);
+        }
+
+        .arch-box h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 8px;
+        }
+
+        .arch-box h3 i {
+            color: var(--brand-primary);
+            font-size: 0.9rem;
+        }
+
+        .arch-box p {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            line-height: 1.65;
             margin-bottom: 10px;
+        }
+
+        .pillar-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .mini-tag {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 0.74rem;
+            font-family: 'Fira Code', monospace;
+            font-weight: 500;
+        }
+
+        /* Provincial Web Network Feature Card */
+        .provincial-feature-card {
+            background: linear-gradient(135deg, var(--brand-subtle) 0%, var(--bg-surface) 100%);
+            border: 1px solid var(--brand-border);
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0 0 0;
+        }
+
+        .provincial-feature-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--brand-primary);
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .provincial-feature-card p {
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: var(--text-main);
+            margin-bottom: 14px;
+        }
+
+        .provincial-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .p-stat {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .p-stat strong {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            direction: ltr;
+        }
+
+        .p-stat span {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+        }
+
+        /* Detailed Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-right: 26px;
+        }
+
+        body.en .timeline-item {
+            padding-right: 0;
+            padding-left: 26px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            right: 0;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--brand-primary);
+            box-shadow: 0 0 0 4px var(--brand-subtle);
+        }
+
+        body.en .timeline-item::before {
+            right: auto;
+            left: 0;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.02rem;
+            color: var(--text-title);
+            font-weight: 700;
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--brand-primary);
+            background: var(--brand-subtle);
+            border: 1px solid var(--brand-border);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .timeline-org {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
             font-weight: 600;
         }
 
-        .main-content p {
-            margin-bottom: 20px;
-            color: #333;
+        .timeline-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .main-content ul {
-            list-style: disc inside;
-            color: #444;
+        .timeline-item li {
+            position: relative;
+            padding-right: 14px;
+            font-size: 0.87rem;
+            color: var(--text-main);
+            line-height: 1.65;
+        }
+
+        body.en .timeline-item li {
+            padding-right: 0;
+            padding-left: 14px;
+        }
+
+        .timeline-item li::before {
+            content: '–';
+            position: absolute;
+            right: 0;
+            color: var(--brand-primary);
+        }
+
+        body.en .timeline-item li::before {
+            right: auto;
+            left: 0;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .project-card {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--brand-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-top h4 {
+            color: var(--text-title);
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .project-top p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: var(--brand-primary);
+            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+            direction: ltr;
+        }
+
+        /* Contact Details */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--brand-primary);
+        }
+
+        .contact-card i {
+            color: var(--brand-primary);
+            font-size: 1.2rem;
+        }
+
+        .contact-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .contact-value {
+            color: var(--text-title);
+            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.84rem;
         }
 
         /* Footer */
         footer {
-            background-color: #f6f6f6;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            border-top: 1px solid #eee;
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto 36px;
+            padding: 20px 24px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.84rem;
+            box-shadow: var(--shadow-subtle);
         }
 
-        footer a {
-            margin: 0 10px;
-            color: #555;
+        .footer-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
-        footer a:hover {
-            color: #000;
+        .footer-links a:hover {
+            color: var(--brand-primary);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 20px;
+        @media (max-width: 980px) {
+            .wrapper {
+                grid-template-columns: 1fr;
             }
-
             .sidebar {
-                width: 100%;
-                padding-right: 0;
-                border-right: none;
-                border-bottom: 1px solid #eee;
-                margin-bottom: 30px;
+                position: static;
             }
-
-            .main-content {
-                padding-left: 0;
+            .arch-pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            .provincial-stats-row {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            footer {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
             }
         }
+		/* دکمه همبرگری - مخفی در دسکتاپ */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: var(--text-color, #e2e8f0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* انیمیشن ضربدر */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* حالت موبایل */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    header nav {
+        position: fixed;
+        top: 60px; /* متناسب با ارتفاع هدر */
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: rgba(15, 23, 42, 0.98); /* رنگ پس‌زمینه تیره هماهنگ با تم */
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        gap: 1.5rem;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    header nav.active {
+        right: 0;
+    }
+
+    header nav a {
+        font-size: 1.1rem;
+        width: 80%;
+        text-align: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Meysam Hasanvand</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="https://www.meysamhasanvand.ir/assets/CV.pdf">Resume</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <div class="grid-backdrop"></div>
 
-    <div class="container">
+<!-- Header Navigation -->
+<header>
+    <a href="#" class="logo">
+        <span class="logo-indicator"></span>
+        m.hasanvand
+    </a>
+    <nav id="mainNav">
+        <a href="#about" data-i18n="nav_about">معماری و تخصص</a>
+        <a href="#provincial-network" data-i18n="nav_provincial">شبکه وب استانی</a>
+        <a href="#experience" data-i18n="nav_experience">مسیر اجرایی و پروژه‌ها</a>
+        <a href="#ventures" data-i18n="nav_ventures">سامانه‌ها و پلتفرم‌ها</a>
+        <a href="#contact" data-i18n="nav_contact">ارتباط مستقیم</a>
+    </nav>
+    <div class="controls">
+        <button class="control-btn" id="themeToggle" title="تغییر حالت تم">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="control-btn lang-btn" id="langToggle">EN</button>
+        <!-- دکمه همبرگری موبایل -->
+        <button class="control-btn mobile-menu-toggle" id="mobileMenuToggle" aria-label="منو">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+
+    <div class="wrapper">
+        <!-- Sidebar Profile -->
         <aside class="sidebar">
-            <img src="https://www.meysamhasanvand.ir/assets/Avatar.jpg" alt="Meysam Hasanvand">
-            <h2>IT Manager & Developer</h2>
-            <p>Leading secure infrastructure & digital systems at HCIOE.</p>
+            <div class="avatar-wrap">
+                <img src="https://www.meysamhasanvand.ir/assets/Avatar.jpg" alt="Meysam Hasanvand" onerror="this.src='https://ui-avatars.com/api/?name=Meysam+Hasanvand&background=0f766e&color=fff'">
+            </div>
+            <h1 data-i18n="my_name">میثم حسنوند</h1>
+            <div class="status-badge" data-i18n="my_title">مدیر فناوری اطلاعات و معمار زیرساخت</div>
+            
+            <p class="bio" data-i18n="my_shortbio">
+                مدیر IT در شورای عالی کارشناسان رسمی دادگستری (HCIOE)؛ طراح زیرساخت‌های کلان سرور، سامانه‌های ارجاع و آزمون کشوری، و شبکه وب‌پورتال‌های استانی.
+            </p>
+
+            <a href="https://www.meysamhasanvand.ir/assets/resume.pdf" target="_blank" class="btn-resume">
+                <i class="fas fa-file-arrow-down"></i>
+                <span data-i18n="btn_download_cv">دریافت رزومه رسمی (PDF)</span>
+            </a>
+
+            <!-- Quick Specs from CV -->
+            <div class="sidebar-specs">
+                <div class="spec-item">
+                    <span data-i18n="spec_exp_title">سابقه حرفه‌ای:</span>
+                    <span data-i18n="spec_exp_val">+۶.۵ سال ارشد</span>
+                </div>
+                <div class="spec-item">
+                    <span data-i18n="spec_edu_title">تحصیلات:</span>
+                    <span data-i18n="spec_edu_val">کارشناسی ارشد IT / AI</span>
+                </div>
+                <div class="spec-item">
+                    <span data-i18n="spec_certs_title">گواهینامه‌ها:</span>
+                    <span>LPIC-1 &bull; Network+</span>
+                </div>
+                <div class="spec-item">
+                    <span data-i18n="spec_location_title">موقعیت:</span>
+                    <span data-i18n="spec_location_val">تهران، میرداماد</span>
+                </div>
+            </div>
+
             <div class="social-links">
-                <a href="https://linkedin.com/in/meysam-hasanvand"
-                    target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-                <a href="https://github.com/MeysamHasanvand" target="_blank"><i class="fab fa-github"></i>GitHub</a>
-                <a href="mailto:contact@meysamhasanvand.ir"><i class="fas fa-envelope"></i>Email</a>
-                <a href="https://netesprit.ir" target="_blank"><i class="fas fa-globe"></i>NetEsprit</a>
-                <a href="https://riseweb.ir" target="_blank"><i class="fas fa-globe"></i>RiseWeb</a>
+                <a href="https://www.linkedin.com/in/meysam-hasanvand/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/MeysamHasanvand" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub Repositories</span>
+                </a>
+                <a href="mailto:contact@meysamhasanvand.ir">
+                    <i class="fas fa-envelope"></i>
+                    <span>contact@meysamhasanvand.ir</span>
+                </a>
+                <a href="https://netesprit.ir" target="_blank">
+                    <i class="fas fa-server"></i>
+                    <span>NetEsprit (زیرساخت ابری)</span>
+                </a>
+                <a href="https://riseweb.ir" target="_blank">
+                    <i class="fas fa-code"></i>
+                    <span>RiseWeb (طراحی وب)</span>
+                </a>
             </div>
         </aside>
 
-        <section class="main-content">
-            <h2 id="about">About Me</h2>
-            <p>Hello! I'm Meysam Hasanvand, a passionate IT leader with extensive experience in secure system
-                development, infrastructure management, and digital transformation. Currently heading IT at HCIOE, I
-                specialize in building resilient digital ecosystems.</p>
+        <!-- Main Content Stream -->
+        <main class="content-area">
+            
+            <!-- SECTION 1: ARCHITECTURE & DEEP TECHNICAL STACK -->
+            <section class="card" id="about">
+                <div class="card-header">
+                    <i class="fas fa-layer-group"></i>
+                    <h2 data-i18n="title_about">معماری و دامنه‌های تخصصی</h2>
+                </div>
+                
+                <p style="font-size: 0.95rem; line-height: 1.85; color: var(--text-main);" data-i18n="desc_about">
+                    فعالیت من معطوف به پیاده‌سازی زیرساخت‌های تاب‌آور، خودکارسازی سرویس‌های اداری و پیاده‌سازی معماری‌های وب مقیاس‌پذیر در ابعاد کشوری است. از مدیریت کلاسترهای دیتاسنتری HP و مجازی‌سازی VMware تا طراحی و امنیت سامانه ارجاع کارشناسان و مدیریت شبکه پورتال کانون‌های استانی، تمرکز بر دسترس‌پذیری ۹۹.۹٪، کاهش مخاطرات نفوذ و پایداری گردش داده است.
+                </p>
 
-            <h2 id="resume">Resume Highlights</h2>
-            <ul>
-                <li>Head of IT at HCIOE – driving security, infrastructure, and innovation</li>
-                <li>Experienced in .NET backend development and DevOps</li>
-                <li>Founder of NetEsprit and RiseWeb for hosting & web design</li>
-                <li>Skilled in Linux, Git, automation, and team leadership</li>
-            </ul>
+                <!-- 4 Architecture Pillars -->
+                <div class="arch-pillars-grid">
+                    
+                    <div class="arch-box">
+                        <h3><i class="fas fa-server"></i> <span data-i18n="p1_title">زیرساخت و مجازی‌سازی دیتاسنتر</span></h3>
+                        <p data-i18n="p1_desc">پیکربندی سرورهای Enterprise HP ProLiant، مجازی‌سازی با VMware ESXi / vCenter، ریدبندی ذخیره‌سازها، و پیاده‌سازی متدولوژی‌های پشتیبان‌گیری Disaster Recovery با نرم‌افزار Veeam Backup.</p>
+                        <div class="pillar-tags">
+                            <span class="mini-tag">HP ProLiant</span>
+                            <span class="mini-tag">VMware ESXi</span>
+                            <span class="mini-tag">Veeam Backup</span>
+                            <span class="mini-tag">Windows Server</span>
+                            <span class="mini-tag">Active Directory</span>
+                        </div>
+                    </div>
 
-            <h2 id="contact">Contact</h2>
-            <p>Let's connect! Reach out via LinkedIn, GitHub, or email.</p>
-        </section>
+                    <div class="arch-box">
+                        <h3><i class="fas fa-shield-halved"></i> <span data-i28n="p2_title">امنیت شبکه و سرویس‌های ارتباطی</span></h3>
+                        <p data-i18n="p2_desc">سخت‌سازی امنیتی فایروال‌های سخت‌افزاری FortiGate، روتینگ و سوئیچینگ سیسکو/میکروتیک، مدیریت پهنای باند، مانیتورینگ متمرکز PRTG و پیاده‌سازی مراکز تلفنی ویپ سازمانی با Issabel VoIP.</p>
+                        <div class="pillar-tags">
+                            <span class="mini-tag">FortiGate FW</span>
+                            <span class="mini-tag">MikroTik RouterOS</span>
+                            <span class="mini-tag">Issabel VoIP</span>
+                            <span class="mini-tag">PRTG Monitor</span>
+                            <span class="mini-tag">Wireshark</span>
+                        </div>
+                    </div>
+
+                    <div class="arch-box">
+                        <h3><i class="fas fa-cubes"></i> <span data-i18n="p3_title">دواپس، کانتینرها و توسعه نرم‌افزار</span></h3>
+                        <p data-i18n="p3_desc">استقرار سرویس‌ها مبتنی بر Docker و Docker Compose، مدیریت پایگاه‌های داده SQL Server و MySQL، کشینگ با Redis، پیاده‌سازی لاجیک‌های بک‌اند .NET Core و اسکریپت‌های PHP و لینوکس (LPIC-1).</p>
+                        <div class="pillar-tags">
+                            <span class="mini-tag">Docker Compose</span>
+                            <span class="mini-tag">Linux / LPIC-1</span>
+                            <span class="mini-tag">.NET Core</span>
+                            <span class="mini-tag">SQL Server / MySQL</span>
+                            <span class="mini-tag">Redis</span>
+                        </div>
+                    </div>
+
+                    <div class="arch-box">
+                        <h3><i class="fas fa-chart-line"></i> <span data-i18n="p4_title">معماری پورتال‌های وب و سئو تکنیکال</span></h3>
+                        <p data-i18n="p4_desc">معماری سیستم‌های مدیریت محتوا مبتنی بر وردپرس اختصاصی، پیاده‌سازی پروتکل‌های امنیت وب، بهینه‌سازی سرعت Core Web Vitals و ردگیری پیشرفته داده‌ها با Google Analytics، GTM و Search Console.</p>
+                        <div class="pillar-tags">
+                            <span class="mini-tag">WordPress Core</span>
+                            <span class="mini-tag">Technical SEO</span>
+                            <span class="mini-tag">GTM &amp; GA4</span>
+                            <span class="mini-tag">DNS Management</span>
+                            <span class="mini-tag">Odoo ERP</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SPECIAL FEATURE: PROVINCIAL WEBSITES DESIGN & NETWORK -->
+                <div class="provincial-feature-card" id="provincial-network">
+                    <h3><i class="fas fa-network-wired"></i> <span data-i18n="prov_title">پروژه کلان: معماری و طراحی پرتال وب کانون‌های استانی (۳۱ استان)</span></h3>
+                    <p data-i18n="prov_desc">
+                        طراحی، استانداردسازی ساختار و توسعه وب‌سایت‌های کانون‌های کارشناسان رسمی دادگستری در ۳۱ استان کشور. این طرح شامل ایجاد یک دیزاین‌سیستم یکپارچه سازمانی، تفکیک دیتابیس‌ها و دسترسی‌های اداری استانی، هماهنگی با الزامات هویتی شورای عالی (HCIOE)، پیاده‌سازی پروتکل‌های امنیتی، ارتباط با وب‌سرویس‌های استعلام صلاحیت کارشناسان، و استقرار سامانه‌های اطلاع‌رسانی بومی با زمان پاسخ‌دهی استاندارد در سراسر کشور است.
+                    </p>
+                    <div class="provincial-stats-row">
+                        <div class="p-stat">
+                            <strong>۳۱</strong>
+                            <span data-i18n="stat_prov_count">کانون استانی تحت پوشش</span>
+                        </div>
+                        <div class="p-stat">
+                            <strong>۱۰۰٪</strong>
+                            <span data-i18n="stat_prov_sync">انطباق با هویت بصری سازمانی</span>
+                        </div>
+                        <div class="p-stat">
+                            <strong>REST API</strong>
+                            <span data-i18n="stat_prov_api">اتصال به دیتابیس مرکزی شورای عالی</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION 2: EXECUTIVE CAREER TRACK & MAJOR PROJECTS -->
+            <section class="card" id="experience">
+                <div class="card-header">
+                    <i class="fas fa-timeline"></i>
+                    <h2 data-i18n="title_experience">مسیر اجرایی و سوابق پروژه‌محور</h2>
+                </div>
+
+                <div class="timeline">
+                    
+                    <!-- Role 1: IT Director -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 data-i18n="exp1_role">مدیر فناوری اطلاعات (IT Director)</h3>
+                            <span class="timeline-date" data-i18n="exp1_date">فروردین ۱۴۰۲ — اکنون</span>
+                        </div>
+                        <div class="timeline-org" data-i18n="exp1_org">شورای عالی کارشناسان رسمی دادگستری (HCIOE)</div>
+                        <ul>
+                            <li data-i18n="exp1_t1">رهبری کامل دپارتمان فناوری اطلاعات، زیرساخت شبکه دیتاسنتر، امنیت داده‌ها و سامانه‌های الکترونیک کلان سازمانی.</li>
+                            <li data-i18n="exp1_t2">هدایت و برنامه‌ریزی راهبردی تحول دیجیتال و جایگزینی فرآیندهای دستی با سامانه‌های نرم‌افزاری تحت وب.</li>
+                            <li data-i18n="exp1_t3">مدیریت قراردادها، تجهیزات سخت‌افزاری، نظارت بر استانداردهای امنیت داده و مدیریت بحران زیرساخت.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project Management 1: Recruitment System -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 data-i18n="proj_rec_title">مدیر پروژه سامانه جذب و آزمون کارشناسان رسمی</h3>
+                            <span class="timeline-date" data-i18n="proj_rec_date">اسفند ۱۴۰۲ — اکنون</span>
+                        </div>
+                        <div class="timeline-org" data-i18n="proj_rec_org">شورای عالی کارشناسان رسمی دادگستری (HCIOE)</div>
+                        <ul>
+                            <li data-i18n="proj_rec_t1">مدیریت چرخه حیات سامانه ثبت‌نام، احراز هویت، آزمون و جذب سراسری متقاضیان کارشناسی رسمی دادگستری با ترافیک همزمان بالا.</li>
+                            <li data-i18n="proj_rec_t2">تضمین پایداری زیرساخت دیتابیس در زمان پیک ثبت‌نام و برقراری ارتباط وب‌سرویسی با سامانه‌های احراز هویت حاکمیتی.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project Management 2: Referral System -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 data-i18n="proj_ref_title">رئیس کمیته فنی و مدیر پروژه سامانه ارجاع عادلانه کارشناسان</h3>
+                            <span class="timeline-date" data-i18n="proj_ref_date">اسفند ۱۴۰۱ — اکنون</span>
+                        </div>
+                        <div class="timeline-org" data-i18n="proj_ref_org">شورای عالی کارشناسان رسمی دادگستری (HCIOE)</div>
+                        <ul>
+                            <li data-i18n="proj_ref_t1">معماری و نظارت بر پیاده‌سازی سامانه توزیع و ارجاع خودکار پرونده‌های قضایی و کارشناسی میان هزاران کارشناس رسمی در سراسر کشور.</li>
+                            <li data-i18n="proj_ref_t2">مدیریت کمیته فنی برای تدوین الگوریتم‌های تسهیم عادلانه بر اساس صلاحیت، سوابق، ظرفیت آزاد و حیطه جغرافیایی.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role 2: IT Supervisor -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 data-i18n="exp2_role">مسئول فناوری اطلاعات</h3>
+                            <span class="timeline-date" data-i18n="exp2_date">دی ۱۴۰۰ — فروردین ۱۴۰۲</span>
+                        </div>
+                        <div class="timeline-org" data-i18n="exp2_org">شورای عالی کارشناسان رسمی دادگستری (HCIOE)</div>
+                        <ul>
+                            <li data-i18n="exp2_t1">استقرار زیرساخت‌های مجازی‌سازی VMware ESXi بر روی سرورهای HP و راه‌اندازی فرآیند اتوماتیک بک‌آپ‌گیری با Veeam.</li>
+                            <li data-i18n="exp2_t2">پیکربندی فایروال‌های FortiGate، پالیسی‌های دسترسی امن Active Directory و راه‌اندازی سانترال VoIP سازمانی (Issabel).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role 3: SysAdmin & Network -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 data-i18n="exp3_role">کارشناس شبکه و مدیر سیستم (SysAdmin)</h3>
+                            <span class="timeline-date" data-i18n="exp3_date">خرداد ۱۳۹۹ — دی ۱۴۰۰</span>
+                        </div>
+                        <div class="timeline-org" data-i18n="exp3_org">شورای عالی کارشناسان رسمی دادگستری (HCIOE)</div>
+                        <ul>
+                            <li data-i18n="exp3_t1">مدیریت سوئیچ‌ها و روترهای میکروتیک، رفع رخدادهای شبکه، مانیتورینگ ترافیک با PRTG و نگهداری سرورهای ویندوزی و لینوکسی.</li>
+                            <li data-i18n="exp3_t2">پشتیبانی سطوح ۲ و ۳ کاربران، مدیریت سخت‌افزار ایستگاه‌های کاری و پیاده‌سازی کنترل دسترسی‌های محلی.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role 4: CEO / Founder IrisTech -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 data-i18n="exp4_role">مدیرعامل و هم‌بنیان‌گذار (CEO &amp; Founder)</h3>
+                            <span class="timeline-date" data-i18n="exp4_date">دی ۱۳۹۹ — شهریور ۱۴۰۲</span>
+                        </div>
+                        <div class="timeline-org" data-i18n="exp4_org">شرکت آریا سیستم آیریس (IrisTechCo)</div>
+                        <ul>
+                            <li data-i18n="exp4_t1">مدیریت توسعه نرم‌افزار، پروژه‌های طراحی سامانه‌های تحت وب شرکتی و ارائه راهکارهای شبکه و امنیت به سازمان‌های طرف قرارداد.</li>
+                            <li data-i18n="exp4_t2">هدایت فنی تیم برنامه‌نویسی و مدیریت زیرساخت سرورهای اختصاصی در دیتاسنترهای داخلی و خارجی.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 3: VENTURES & ACTIVE PLATFORMS -->
+            <section class="card" id="ventures">
+                <div class="card-header">
+                    <i class="fas fa-boxes-stacked"></i>
+                    <h2 data-i18n="title_ventures">سامانه‌ها، پلتفرم‌ها و برندهای تجاری</h2>
+                </div>
+                <div class="projects-grid">
+                    
+                    <a href="https://riseweb.ir" target="_blank" class="project-card">
+                        <div class="project-top">
+                            <h4>RiseWeb (رایزوب)</h4>
+                            <p data-i18n="proj_riseweb">آژانس تخصصی طراحی وب‌سایت، توسعه پورتال‌های اختصاصی وردپرس، سئو تکنیکال و کمپین‌های مارکتینگ موتور جستجو.</p>
+                        </div>
+                        <div class="project-link">
+                            <span>riseweb.ir</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </a>
+
+                    <a href="https://netesprit.ir" target="_blank" class="project-card">
+                        <div class="project-top">
+                            <h4>NetEsprit (نت‌اسپریت)</h4>
+                            <p data-i18n="proj_netesprit">زیرساخت میزبانی ابری سازمانی، ثبت و کانفیگ دامنه‌های ملی و بین‌المللی، گواهینامه‌های امنیتی SSL و سرورهای NVMe پایدار.</p>
+                        </div>
+                        <div class="project-link">
+                            <span>netesprit.ir</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- SECTION 4: CONTACT -->
+            <section class="card" id="contact">
+                <div class="card-header">
+                    <i class="fas fa-headset"></i>
+                    <h2 data-i18n="title_contact">راه‌های ارتباط کاری مستقیم</h2>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="desc_contact">برای مذاکره درباره مدیریت زیرساخت‌های سازمان، مشاوره معماری سامانه‌های کلان، یا همکاری در پروژه‌های مقیاس‌پذیر در ارتباط باشید:</p>
+                <div class="contact-grid">
+                    <a href="mailto:contact@meysamhasanvand.ir" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="contact-label" data-i18n="label_email">پست الکترونیکی مستقیم</span>
+                            <span class="contact-value">contact@meysamhasanvand.ir</span>
+                        </div>
+                    </a>
+                    <a href="tel:09127217345" class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <span class="contact-label" data-i18n="label_phone">تماس مستقیم کاری</span>
+                            <span class="contact-value" dir="ltr">0912 721 7345</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+        </main>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>© 2025 Meysam Hasanvand</p>
-        <a href="https://netesprit.ir" target="_blank">NetEsprit</a>
-        <a href="https://riseweb.ir" target="_blank">RiseWeb</a>
-        <a href="https://github.com/MeysamHasanvand" target="_blank">GitHub</a>
+        <p>© 2026 Meysam Hasanvand. Designed for mission-critical infrastructure.</p>
+        <div class="footer-links">
+            <a href="https://netesprit.ir" target="_blank">NetEsprit</a>
+            <a href="https://riseweb.ir" target="_blank">RiseWeb</a>
+            <a href="https://github.com/MeysamHasanvand" target="_blank">GitHub</a>
+        </div>
     </footer>
 
-</body>
+    <!-- Multilingual & Interactive Logic -->
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        const root = document.documentElement;
 
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const nextTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            applyTheme(nextTheme);
+        });
+
+        function applyTheme(theme) {
+            root.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        const i18n = {
+            fa: {
+                nav_about: "معماری و تخصص",
+                nav_provincial: "شبکه وب استانی",
+                nav_experience: "مسیر اجرایی و پروژه‌ها",
+                nav_ventures: "سامانه‌ها و پلتفرم‌ها",
+                nav_contact: "ارتباط مستقیم",
+                my_name: "میثم حسن‌وند",
+                my_title: "مدیر فناوری اطلاعات و معمار زیرساخت",
+                my_shortbio: "مدیر IT در شورای عالی کارشناسان رسمی دادگستری (HCIOE)؛ طراح زیرساخت‌های کلان سرور، سامانه‌های ارجاع و آزمون کشوری، و شبکه وب‌پورتال‌های استانی.",
+                btn_download_cv: "دریافت رزومه رسمی (PDF)",
+                spec_exp_title: "سابقه حرفه‌ای:",
+                spec_exp_val: "+۶.۵ سال ارشد",
+                spec_edu_title: "تحصیلات:",
+                spec_edu_val: "کارشناسی ارشد IT / AI",
+                spec_location_title: "موقعیت:",
+                spec_location_val: "تهران، میرداماد",
+                title_about: "معماری و دامنه‌های تخصصی",
+                desc_about: "فعالیت من معطوف به پیاده‌سازی زیرساخت‌های تاب‌آور، خودکارسازی سرویس‌های اداری و پیاده‌سازی معماری‌های وب مقیاس‌پذیر در ابعاد کشوری است. از مدیریت کلاسترهای دیتاسنتری HP و مجازی‌سازی VMware تا طراحی و امنیت سامانه ارجاع کارشناسان و مدیریت شبکه پورتال کانون‌های استانی، تمرکز بر دسترس‌پذیری ۹۹.۹٪، کاهش مخاطرات نفوذ و پایداری گردش داده است.",
+                p1_title: "زیرساخت و مجازی‌سازی دیتاسنتر",
+                p1_desc: "پیکربندی سرورهای Enterprise HP ProLiant، مجازی‌سازی با VMware ESXi / vCenter، ریدبندی ذخیره‌سازها، و پیاده‌سازی متدولوژی‌های پشتیبان‌گیری Disaster Recovery با نرم‌افزار Veeam Backup.",
+                p2_title: "امنیت شبکه و سرویس‌های ارتباطی",
+                p2_desc: "سخت‌سازی امنیتی فایروال‌های سخت‌افزاری FortiGate، روتینگ و سوئیچینگ سیسکو/میکروتیک، مدیریت پهنای باند، مانیتورینگ متمرکز PRTG و پیاده‌سازی مراکز تلفنی ویپ سازمانی با Issabel VoIP.",
+                p3_title: "دواپس، کانتینرها و توسعه نرم‌افزار",
+                p3_desc: "استقرار سرویس‌ها مبتنی بر Docker و Docker Compose، مدیریت پایگاه‌های داده SQL Server و MySQL، کشینگ با Redis، پیاده‌سازی لاجیک‌های بک‌اند .NET Core و اسکریپت‌های PHP و لینوکس (LPIC-1).",
+                p4_title: "معماری پورتال‌های وب و سئو تکنیکال",
+                p4_desc: "معماری سیستم‌های مدیریت محتوا مبتنی بر وردپرس اختصاصی، پیاده‌سازی پروتکل‌های امنیت وب، بهینه‌سازی سرعت Core Web Vitals و ردگیری پیشرفته داده‌ها با Google Analytics، GTM و Search Console.",
+                prov_title: "پروژه کلان: معماری و طراحی پرتال وب کانون‌های استانی (۳۱ استان)",
+                prov_desc: "طراحی، استانداردسازی ساختار و توسعه وب‌سایت‌های کانون‌های کارشناسان رسمی دادگستری در ۳۱ استان کشور. این طرح شامل ایجاد یک دیزاین‌سیستم یکپارچه سازمانی، تفکیک دیتابیس‌ها و دسترسی‌های اداری استانی، هماهنگی با الزامات هویتی شورای عالی (HCIOE)، پیاده‌سازی پروتکل‌های امنیتی، ارتباط با وب‌سرویس‌های استعلام صلاحیت کارشناسان، و استقرار سامانه‌های اطلاع‌رسانی بومی با زمان پاسخ‌دهی استاندارد در سراسر کشور است.",
+                stat_prov_count: "کانون استانی تحت پوشش",
+                stat_prov_sync: "انطباق با هویت بصری سازمانی",
+                stat_prov_api: "اتصال به دیتابیس مرکزی شورای عالی",
+                title_experience: "مسیر اجرایی و سوابق پروژه‌محور",
+                exp1_role: "مدیر فناوری اطلاعات (IT Director)",
+                exp1_date: "فروردین ۱۴۰۲ — اکنون",
+                exp1_org: "شورای عالی کارشناسان رسمی دادگستری (HCIOE)",
+                exp1_t1: "رهبری کامل دپارتمان فناوری اطلاعات، زیرساخت شبکه دیتاسنتر، امنیت داده‌ها و سامانه‌های الکترونیک کلان سازمانی.",
+                exp1_t2: "هدایت و برنامه‌ریزی راهبردی تحول دیجیتال و جایگزینی فرآیندهای دستی با سامانه‌های نرم‌افزاری تحت وب.",
+                exp1_t3: "مدیریت قراردادها، تجهیزات سخت‌افزاری، نظارت بر استانداردهای امنیت داده و مدیریت بحران زیرساخت.",
+                proj_rec_title: "مدیر پروژه سامانه جذب و آزمون کارشناسان رسمی",
+                proj_rec_date: "اسفند ۱۴۰۲ — اکنون",
+                proj_rec_org: "شورای عالی کارشناسان رسمی دادگستری (HCIOE)",
+                proj_rec_t1: "مدیریت چرخه حیات سامانه ثبت‌نام، احراز هویت، آزمون و جذب سراسری متقاضیان کارشناسی رسمی دادگستری با ترافیک همزمان بالا.",
+                proj_rec_t2: "تضمین پایداری زیرساخت دیتابیس در زمان پیک ثبت‌نام و برقراری ارتباط وب‌سرویسی با سامانه‌های احراز هویت حاکمیتی.",
+                proj_ref_title: "رئیس کمیته فنی و مدیر پروژه سامانه ارجاع عادلانه کارشناسان",
+                proj_ref_date: "اسفند ۱۴۰۱ — اکنون",
+                proj_ref_org: "شورای عالی کارشناسان رسمی دادگستری (HCIOE)",
+                proj_ref_t1: "معماری و نظارت بر پیاده‌سازی سامانه توزیع و ارجاع خودکار پرونده‌های قضایی و کارشناسی میان هزاران کارشناس رسمی در سراسر کشور.",
+                proj_ref_t2: "مدیریت کمیته فنی برای تدوین الگوریتم‌های تسهیم عادلانه بر اساس صلاحیت، سوابق، ظرفیت آزاد و حیطه جغرافیایی.",
+                exp2_role: "مسئول فناوری اطلاعات",
+                exp2_date: "دی ۱۴۰۰ — فروردین ۱۴۰۲",
+                exp2_org: "شورای عالی کارشناسان رسمی دادگستری (HCIOE)",
+                exp2_t1: "استقرار زیرساخت‌های مجازی‌سازی VMware ESXi بر روی سرورهای HP و راه‌اندازی فرآیند اتوماتیک بک‌آپ‌گیری با Veeam.",
+                exp2_t2: "پیکربندی فایروال‌های FortiGate، پالیسی‌های دسترسی امن Active Directory و راه‌اندازی سانترال VoIP سازمانی (Issabel).",
+                exp3_role: "کارشناس شبکه و مدیر سیستم (SysAdmin)",
+                exp3_date: "خرداد ۱۳۹۹ — دی ۱۴۰۰",
+                exp3_org: "شورای عالی کارشناسان رسمی دادگستری (HCIOE)",
+                exp3_t1: "مدیریت سوئیچ‌ها و روترهای میکروتیک، رفع رخدادهای شبکه، مانیتورینگ ترافیک با PRTG و نگهداری سرورهای ویندوزی و لینوکسی.",
+                exp3_t2: "پشتیبانی سطوح ۲ و ۳ کاربران، مدیریت سخت‌افزار ایستگاه‌های کاری و پیاده‌سازی کنترل دسترسی‌های محلی.",
+                exp4_role: "مدیرعامل و هم‌بنیان‌گذار (CEO & Founder)",
+                exp4_date: "دی ۱۳۹۹ — شهریور ۱۴۰۲",
+                exp4_org: "شرکت آریا سیستم آیریس (IrisTechCo)",
+                exp4_t1: "مدیریت توسعه نرم‌افزار، پروژه‌های طراحی سامانه‌های تحت وب شرکتی و ارائه راهکارهای شبکه و امنیت به سازمان‌های طرف قرارداد.",
+                exp4_t2: "هدایت فنی تیم برنامه‌نویسی و مدیریت زیرساخت سرورهای اختصاصی در دیتاسنترهای داخلی و خارجی.",
+                title_ventures: "سامانه‌ها، پلتفرم‌ها و برندهای تجاری",
+                proj_riseweb: "آژانس تخصصی طراحی وب‌سایت، توسعه پورتال‌های اختصاصی وردپرس، سئو تکنیکال و کمپین‌های مارکتینگ موتور جستجو.",
+                proj_netesprit: "زیرساخت میزبانی ابری سازمانی، ثبت و کانفیگ دامنه‌های ملی و بین‌المللی، گواهینامه‌های امنیتی SSL و سرورهای NVMe پایدار.",
+                title_contact: "راه‌های ارتباط کاری مستقیم",
+                desc_contact: "برای مذاکره درباره مدیریت زیرساخت‌های سازمان، مشاوره معماری سامانه‌های کلان، یا همکاری در پروژه‌های مقیاس‌پذیر در ارتباط باشید:",
+                label_email: "پست الکترونیکی مستقیم",
+                label_phone: "تماس مستقیم کاری"
+            },
+            en: {
+                nav_about: "Architecture & Pillars",
+                nav_provincial: "Provincial Network",
+                nav_experience: "Track Record & Projects",
+                nav_ventures: "Platforms",
+                nav_contact: "Direct Line",
+                my_name: "Meysam Hasanvand",
+                my_title: "IT Director & Infrastructure Architect",
+                my_shortbio: "IT Director at HCIOE; architecting mission-critical servers, nationwide referral & recruitment platforms, and a 31-province web ecosystem.",
+                btn_download_cv: "Download Official CV (PDF)",
+                spec_exp_title: "Track Record:",
+                spec_exp_val: "+6.5 Yrs Senior",
+                spec_edu_title: "Education:",
+                spec_edu_val: "M.Sc. IT & AI",
+                spec_location_title: "Location:",
+                spec_location_val: "Tehran, Mirdamad",
+                title_about: "Enterprise Architecture & Domains",
+                desc_about: "My core expertise lies in orchestrating resilient infrastructure, end-to-end organizational automation, and enterprise web engineering at a nationwide scale. From operating HP datacenters and VMware virtualization to overseeing national referral engines and provincial portal networks, uptime (99.9%) and zero-trust security remain paramount.",
+                p1_title: "Datacenter & Virtualization Stacks",
+                p1_desc: "Enterprise HP ProLiant fleets, VMware ESXi & vCenter orchestration, storage array RAID parity, and rigorous disaster recovery with Veeam Backup & Replication.",
+                p2_title: "Network Hardening & Telecom Stacks",
+                p2_desc: "FortiGate hardware firewall clustering, Cisco & MikroTik L2/L3 topology routing, centralized telemetry via PRTG, and enterprise Issabel VoIP PBX telecommunication.",
+                p3_title: "DevOps, Containerization & Backend",
+                p3_desc: "Container workflows via Docker & Docker Compose, relational persistence with SQL Server/MySQL, Redis caching, .NET Core backends, and Linux system engineering (LPIC-1).",
+                p4_title: "Web Platforms & Technical SEO",
+                p4_desc: "Custom WordPress architectures, enterprise web hardening, Core Web Vitals performance tuning, and deep telemetry with Google Tag Manager, GA4, and Search Console.",
+                prov_title: "Strategic Initiative: 31-Province Web Portal Network",
+                prov_desc: "Architecting, standardizing, and deploying web portals for HCIOE expert bar associations across all 31 Iranian provinces. Delivered a unified organizational design system, partitioned databases with localized admin hierarchies, full compliance with central council branding, security hardening, and live REST API integrations for real-time license verification.",
+                stat_prov_count: "Provincial Portals Standardized",
+                stat_prov_sync: "Brand Identity Alignment",
+                stat_prov_api: "REST API Integration to Central HCIOE",
+                title_experience: "Executive Track Record & Key Projects",
+                exp1_role: "Information Technology Director",
+                exp1_date: "Apr 2023 — Present",
+                exp1_org: "High Council of Official Experts (HCIOE)",
+                exp1_t1: "Full executive oversight of IT operations, datacenter networks, information security, and enterprise platforms nationwide.",
+                exp1_t2: "Formulating digital transformation roadmaps to modernize legacy workflows into high-availability cloud portals.",
+                exp1_t3: "Managing vendor SLA contracts, hardware acquisitions, cybersecurity posture, and business continuity protocols.",
+                proj_rec_title: "Project Manager — Recruitment & Examination System",
+                proj_rec_date: "Mar 2024 — Present",
+                proj_rec_org: "High Council of Official Experts (HCIOE)",
+                proj_rec_t1: "Directing the platform lifecycle for nationwide registration, identity verification, and examination of expert candidates under extreme concurrent load.",
+                proj_rec_t2: "Ensuring database resilience during registration surges and integrating sovereign identity verification web-services.",
+                proj_ref_title: "Technical Head & PM — Expert Referral Engine",
+                proj_ref_date: "Mar 2023 — Present",
+                proj_ref_org: "High Council of Official Experts (HCIOE)",
+                proj_ref_t1: "Architecting the automated assignment platform distributing judicial cases fairly among thousands of accredited experts nationwide.",
+                proj_ref_t2: "Heading the technical committee defining algorithmic assignment parameters (field accreditation, historical load, geography).",
+                exp2_role: "IT Supervisor",
+                exp2_date: "Jan 2022 — Apr 2023",
+                exp2_org: "High Council of Official Experts (HCIOE)",
+                exp2_t1: "Provisioned VMware ESXi virtualization over HP rack clusters and initiated automated backup pipelines using Veeam.",
+                exp2_t2: "Engineered FortiGate UTM security rules, centralized Active Directory policies, and unified corporate VoIP PBX systems.",
+                exp3_role: "Network Engineer & Systems Administrator",
+                exp3_date: "Jun 2020 — Jan 2022",
+                exp3_org: "High Council of Official Experts (HCIOE)",
+                exp3_t1: "Managed MikroTik routing infrastructure, resolved core network events, telemetry monitoring via PRTG, and maintained Windows/Linux server stacks.",
+                exp3_t2: "Delivered Tier 2/3 technical incident resolution, workstation hardware management, and local access governance.",
+                exp4_role: "CEO & Co-Founder",
+                exp4_date: "Jan 2021 — Sep 2023",
+                exp4_org: "Arya System Iris Co. (IrisTechCo)",
+                exp4_t1: "Directed bespoke software development, corporate web architectures, and contracted infrastructure solutions.",
+                exp4_t2: "Led technical engineering squads and managed private hosting clusters in domestic and European datacenters.",
+                title_ventures: "Active Platforms & Ventures",
+                proj_riseweb: "Digital agency specializing in high-performance web engineering, custom WordPress enterprise portals, technical SEO, and SEM.",
+                proj_netesprit: "Enterprise cloud hosting platform delivering managed domain registrations, NVMe server clusters, and SSL security.",
+                title_contact: "Direct Line & Inquiries",
+                desc_contact: "Open for technical consulting, mission-critical infrastructure advisory, or enterprise system collaborations:",
+                label_email: "Direct Corporate Email",
+                label_phone: "Direct Phone Line"
+            }
+        };
+
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = 'fa';
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'fa' ? 'en' : 'fa';
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
+            
+            if (currentLang === 'en') {
+                document.body.classList.add('en');
+                langToggleBtn.textContent = 'FA';
+            } else {
+                document.body.classList.remove('en');
+                langToggleBtn.textContent = 'EN';
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[currentLang][key]) {
+                    el.textContent = i18n[currentLang][key];
+                }
+            });
+        });
+
+		const mobileToggle = document.getElementById('mobileMenuToggle');
+const mainNav = document.getElementById('mainNav');
+
+if (mobileToggle && mainNav) {
+    mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+    });
+
+    // بستن منو با کلیک روی هر لینک
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+        });
+    });
+
+    // بستن منو با کلیک بیرون از آن
+    document.addEventListener('click', (e) => {
+        if (!mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+            mobileToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+        }
+    });
+}
+
+    </script>
+</body>
 </html>
